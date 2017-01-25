@@ -510,7 +510,7 @@
 
 			if (textNode instanceof Object) {
 				result += serializeComplexTextNodeContents(textNode);
-			} else if (textNode) {
+			} else if (textNode !== undefined && textNode !== null) {
 				if (config.escapeMode)
 					result += escapeXmlChars(textNode);
 				else
@@ -677,7 +677,7 @@
 		this.xml2dom = function(xml) {
 			return parseXml(xml);
 		};
-			
+
 		// Transforms a DOM tree to JavaScript objects.
 		this.dom2js = function dom2js(domNode) {
 			return deserializeDomChildren(domNode, null);
